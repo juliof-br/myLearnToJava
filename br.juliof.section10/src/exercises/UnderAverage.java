@@ -1,9 +1,9 @@
-package Exercises;
+package exercises;
 
 import java.util.Locale;
 import java.util.Scanner;
 
-public class LargestNumber {
+public class UnderAverage {
     static void main() {
         Locale.setDefault(Locale.US);
         Scanner input = new Scanner(System.in);
@@ -12,22 +12,26 @@ public class LargestNumber {
         int n = input.nextInt();
 
         double[] numbers = new double[n];
+
         for (int i = 0; i < numbers.length; i++) {
             System.out.print("Enter the number of position " + i + ": ");
             numbers[i] = input.nextDouble();
         }
 
-        double largestNumber = numbers[0];
-        int largestPosition = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] > largestNumber) {
-                largestNumber = numbers[i];
-                largestPosition = i;
-            }
+        double sum = 0.0;
+        for (double number : numbers) {
+            sum += number;
         }
 
-        System.out.println("The largest number is: " + largestNumber);
-        System.out.println("The position of largest number is: " + largestPosition);
+        double average = sum / numbers.length;
+
+        System.out.printf("The average of number in vector Numbers is: %.3f%n", average);
+        System.out.println("Below-average numbers: ");
+        for (double number : numbers) {
+            if (number < average) {
+                System.out.println(number);
+            }
+        }
 
         input.close();
     }
