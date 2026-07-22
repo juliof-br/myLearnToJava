@@ -25,20 +25,20 @@ public class Heights {
             heights[i] = input.nextDouble();
         }
 
-        double sumHeight = 0;
+        double sumHeight = 0.0;
         for (double height : heights) {
             sumHeight += height;
         }
         double avgHeight = sumHeight / heights.length;
 
-        double countYounger = 0;
+        double countYounger = 0.0;
         for (int younger : ages) {
             if (younger < 16) {
                 countYounger++;
             }
         }
 
-        double percentYounger = (countYounger / ages.length) * 100;
+        double percentYounger = (countYounger / ages.length) * 100.0;
 
         System.out.println();
         System.out.printf("Average height of registered individuals: %.2f meters.%n", avgHeight);
