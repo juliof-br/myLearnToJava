@@ -1,9 +1,9 @@
-package application;
+package basics;
 
 import java.util.Locale;
 import java.util.Scanner;
 
-public class VectorsBasics {
+public class ArraysBasics {
     static void main() {
         Locale.setDefault(Locale.US);
         Scanner input = new Scanner(System.in);
@@ -20,7 +20,6 @@ public class VectorsBasics {
         }
 
         double sum = 0;
-        double average = 0;
 
         // Sum the data in the vector.
         for (int i = 0; i < n; i++){
@@ -28,7 +27,7 @@ public class VectorsBasics {
         }
 
         // Return the average of the data (height measurements).
-        average = sum / n;
+        double average = sum / n;
         System.out.printf("The average of the entered measurements is: %.2f%n", average);
 
         input.close();

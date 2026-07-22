@@ -1,6 +1,6 @@
-package challenge.application;
+package challenges.rentrooms.application;
 
-import challenge.entities.RentRooms;
+import challenges.rentrooms.entities.RentRooms;
 
 import java.util.Locale;
 import java.util.Scanner;

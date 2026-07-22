@@ -1,4 +1,4 @@
-package entities;
+package challenges.products.entities;
 
 public class Products {
     // Variables

@@ -1,4 +1,4 @@
-package challenge.entities;
+package challenges.rentrooms.entities;
 
 public class RentRooms {
     private String name;

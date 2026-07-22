@@ -1,7 +1,7 @@
-package application;
+package challenges.products.application;
 
 
-import entities.Products;
+import challenges.products.entities.Products;
 
 import java.util.Locale;
 import java.util.Scanner;
