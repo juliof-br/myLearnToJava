@@ -19,28 +19,30 @@ public class Program {
 
         for (int i = 0; i < n; i++) {
             System.out.print("Enter the ID of employee #" + (i + 1) + ": ");
-            Integer id = input.nextInt();
+            int id = input.nextInt();
+            while (hasID(employees, id)) {
+                System.out.print("ID already registered, please try again: ");
+                id = input.nextInt();
+            }
             System.out.print("Enter the name of employee #" + (i + 1) + ": ");
             input.nextLine();
             String name = input.nextLine();
             System.out.print("Enter the salary of employee #" + (i + 1) + ": ");
-            Double salary = input.nextDouble();
+            double salary = input.nextDouble();
 
             Employee newEmployee = new Employee(id, name, salary);
             employees.add(newEmployee);
         }
 
-        int findID;
-
         System.out.print("Do you wish to increase an employee's salary? (Y/n): ");
         char response = input.next().charAt(0);
         if (response == 'Y' || response == 'y') {
             System.out.print("Enter the employee ID: ");
-            findID = input.nextInt();
+            int findID = input.nextInt();
 
             Employee resultFind = employees.stream().filter(x -> x.getId() == findID).findFirst().orElse(null);
 
-                if (resultFind == null) {
+            if (resultFind == null) {
                     System.out.println();
                     System.out.println("This ID does not exist!");
                 } else {
@@ -66,5 +68,11 @@ public class Program {
         }
 
         input.close();
+    }
+
+    // Validation for an ID that is already registered.
+    static boolean hasID(List<Employee> employees, int id) {
+        Employee findID = employees.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+        return findID != null;
     }
 }
