@@ -37,19 +37,28 @@ public class Program {
         if (response == 'Y' || response == 'y') {
             System.out.print("Enter the employee ID: ");
             findID = input.nextInt();
-            for (Employee employee : employees) {
-                if (employee.getId() == findID) {
-                    System.out.print("Enter the percentage you wish to increase: ");
-                    double percentageIncrease = input.nextDouble();
-                    employee.setSalary(employee.newSalary(percentageIncrease));
-                    System.out.println();
-                    System.out.println("Updated Employee's Salary");
-                    System.out.println(employee);
-                } else if (employee.getId() != findID) {
+
+            Employee resultFind = employees.stream().filter(x -> x.getId() == findID).findFirst().orElse(null);
+
+                if (resultFind == null) {
                     System.out.println();
                     System.out.println("This ID does not exist!");
+                } else {
+                    System.out.print("Enter the percentage you wish to increase: ");
+                    double percentageIncrease = input.nextDouble();
+                    resultFind.setSalary(resultFind.newSalary(percentageIncrease));
+
+                    System.out.println();
+                    System.out.println("Updated Employee's Salary");
+                    System.out.println(resultFind);
+
+                    System.out.println();
+                    System.out.print("Do you want to print a list of employees? (Y/n): ");
+                    char printList = input.next().charAt(0);
+                    if (printList == 'Y' || printList == 'y') {
+                        System.out.println(employees);
+                    }
                 }
-            }
         } else if (response == 'N' || response == 'n') {
             System.out.println();
             System.out.println("List of Employees:");
